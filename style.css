@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #F3F4F6;
+  color: #1F2937;
+  min-height: 100vh;
+  padding-top: 60px;
+  line-height: 1.5;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 15px 20px;
+  z-index: 100;
+}
+
+.nav-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.add-task {
+  display: flex;
+  margin-bottom: 25px;
+  gap: 10px;
+}
+
+.task-input {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border: 1px solid #D1D5DB;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.task-input:focus {
+  outline: none;
+  border-color: #60A5FA;
+}
+
+.add-btn {
+  background-color: #60A5FA;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.add-btn:hover {
+  background-color: #3B82F6;
+}
+
+.task-list {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #E5E7EB;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
+
+.task-item.exiting {
+  animation: fadeOut 0.4s ease-in-out forwards;
+}
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.task-text {
+  flex-grow: 1;
+  font-size: 1rem;
+}
+
+.task-text.completed {
+  text-decoration: line-through;
+  color: #9CA3AF;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}
+
+@media (max-width: 480px) {
+  .add-task {
+    flex-direction: column;
+  }
+  
+  .add-btn {
+    padding: 12px;
+  }
+}
